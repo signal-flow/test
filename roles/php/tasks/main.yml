@@ -1,0 +1,6 @@
+---
+- name: Install PHP Extensions
+  yum: name={{ item }} state=present
+  sudo: yes
+  with_items:
+    - php-gd

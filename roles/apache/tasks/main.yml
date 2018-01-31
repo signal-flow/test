@@ -1,0 +1,14 @@
+---
+- name: Update Yum Cache
+  yum: update_cache=yes cache_valid_time=3600
+  sudo: yes
+
+- name: Install Packages
+  yum: name={{ item }} state=present
+  sudo: yes
+  with_items:
+    - httpd
+    - mariadb-server
+    - mariadb
+    - php-mysql
+    - php
